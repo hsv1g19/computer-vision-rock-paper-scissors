@@ -10,6 +10,8 @@ import numpy as np
 class rock_paper_scissors():
 
     def __init__(self):
+        """_summary_
+        """
 
         self.model = load_model('keras_model.h5')
         self.cap = cv2.VideoCapture(0)
@@ -38,25 +40,26 @@ class rock_paper_scissors():
 
 
     def get_computer_choice(self):
-        self.computer_choice = random.choice(self.options)
+        """_summary_
+        """
+        self.computer_choice = random.choice(self.options[0:3])
         print(f'The computer chose {self.computer_choice}')
 
     def get_user_choice(self):
-        self.user_choice = self.options[self.get_prediction]
-        
-        # if max_val_index ==0:
-        #     choice='rock'
-        # if max_val_index ==1:
-        #    choice='paper'
-        # if max_val_index == 2:
-        #     choice='scissors'
-        # if max_val_index == 3:
-        #     choice = 'nothing'
-        # return print(f"You chose {choice}")
-        print(f'You chose {self.user_choice}')
+        """_summary_
+        """
+
+        if self.get_prediction() == 3:
+            self.user_choice = 'None'
+        else:
+            self.user_choice = self.options[self.get_prediction()]
+            print(f'You chose {self.user_choice}')
+            print(f'The computer chose {self.computer_choice}')
 
 
     def get_winner(self):
+        """_summary_
+        """
         if self.user_choice == self.computer_choice:
             self.winner= "Both players selected the same. It's a tie!"
             self.rounds_played+=1
@@ -111,24 +114,27 @@ class rock_paper_scissors():
             cv2.putText(frame, 'Press the c key to start countdown', (0, 50), font, 1, (255, 0, 0), 2, cv2.LINE_AA)
             cv2.putText(frame, 'Press the q key to stop game', (0, 100), font, 1, (225, 0, 0), 2, cv2.LINE_AA)
             cv2.imshow('frame', frame)
-
-            if cv2.waitKey(10) & 0xFF == ord('c'):
+            cv2.waitKey(1)
+            if cv2.waitKey(80) & 0xFF == ord('c'):
                 start_time=time.time()
 
                 while timer > 0:
                     font = cv2.FONT_HERSHEY_DUPLEX 
                     ret, frame = self.cap.read()
-                    cv2.putText(frame, str(timer), (220, 250), font, 6, (255, 0, 0), 4, cv2.LINE_AA)
+                    cv2.putText(frame, str(timer), (250, 250), font, 6, (255, 0, 0), 4, cv2.LINE_AA)
                     cv2.imshow('frame', frame)
+                    cv2.waitKey(5)
                     current_time = time.time()
                     if current_time - start_time >= 1:
+                        start_time = current_time 
                         timer-=1 #increment timer down by 1 second
                         
                 else:    #if timer is equal to zero show Start! on the screen
                     ret, frame = self.cap.read()
                     font = cv2.FONT_HERSHEY_DUPLEX
-                    cv2.putText(frame, 'Start!', (200, 250), font, 5, (255, 145, 0), 4, cv2.LINE_AA)
-        
+                    cv2.putText(frame, 'Start!', (50, 250), font, 5, (255, 145, 0), 4, cv2.LINE_AA)
+                    cv2.imshow('frame', frame)
+                    cv2.waitKey(10)
                     resized_frame = cv2.resize(frame, (224, 224), interpolation = cv2.INTER_AREA)
                     image_np = np.array(resized_frame)
                     normalized_image = (image_np.astype(np.float32) / 127.0) - 1 # Normalize the image
@@ -136,12 +142,12 @@ class rock_paper_scissors():
                     #print(round((current_time-start_time)))
                     cv2.imshow('frame', frame)
 
-                    self.get_computer_choice
-                    self.get_user_choice
-                    self.get_winner
+                    self.get_computer_choice()
+                    self.get_user_choice()
+                    self.get_winner()
 
                     if self.rounds_played == 3:
-                        self.get_game_winner
+                        self.get_game_winner()
                         self.cap.release()#Closes video file or capturing device/camera
                         print(f'You played 3 rounds, the game is finished.')
                         break
