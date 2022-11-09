@@ -4,11 +4,13 @@ import random
 options=["Rock", "Paper", "Scissors"]
 
 def get_computer_choice():
-    return random.choice(options)
+    lol= random.choice(options)
+    print(lol)
+    return lol
+print(get_computer_choice())
 
 def get_user_choice():
     return input('pick your choice ').lower()
-
 
 def  get_winner(computer_choice, user_choice):
 
@@ -23,20 +25,20 @@ def  get_winner(computer_choice, user_choice):
         if computer_choice == "rock":
             winner= print("Paper covers rock! You win!")
         else:
-            print("Scissors cuts paper! You lose computer won.")
+            winner=print("Scissors cuts paper! You lose computer won.")
     elif user_choice == "scissors":
         if computer_choice == "paper":
             winner=print("Scissors cuts paper! You win!")
         else:
             winner=print("Rock smashes scissors! You lose computer won.")
-    return winner
-
+    
 
 
 def play():
     human_choice=get_user_choice()
-    computer_choice=get_computer_choice()
-    return get_winner(computer_choice, human_choice )
+    #computer_choice=get_computer_choice()
+    print(get_computer_choice)
+    return get_winner(get_computer_choice, human_choice )
 
 
 play()
