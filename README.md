@@ -8,9 +8,10 @@ Firstly, to setup my enviroment I first created a github repository called compu
 
 Using if-elif-else statements, the script now choose a winner based on the classic rules of Rock-Paper-Scissors. For example, if the computer chooses rock and the user chooses scissors, the computer wins. I wrapped this code in a function called get_winner and returned the winner. This function takes two arguments: computer_choice and user_choice. Subsequently, I created a function called play. Inside this function I called all the other three functions I created (get_computer_choice, get_user_choice, and get_winner). When I run the code, it plays the game of Rock-Paper-Scissors, and it prints whether the computer or you won.
 
+# milestone 2
 * kjfjf
 * hihishihhs
 * uhvudhue
 * fvis
 
-![Getting Started](images/Screenshot 2022-11-10 110139.jpg)
+![Getting Started](images/Screenshot2022-11-10110139.jpg)
