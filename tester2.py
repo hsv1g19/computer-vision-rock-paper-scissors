@@ -33,12 +33,8 @@ def get_prediction():
         print(round((current_time-start_time)))
         cv2.imshow('frame', frame)
         if round((current_time-start_time)) == 3:
-            prediction = model.predict(data)   
-        if rounds_played == 3:
-            get_game_outcome()
-            stop_video()
-    
-            break
+            prediction = model.predict(data)
+            break   
         
         #second while loop-outside define timer get the current time and store in variable
         # define another variable for for current time then use an if statent if difference between start and end is >1
@@ -56,7 +52,7 @@ def get_prediction():
 
     #out_dict={'rock':0, 'paper':1, 'scissors':2, 'nothing':3}
     #filtered_list=[{out_dict[key] for key in output if key in out_dict }]
-    max_val_index= np.argmax(prediction[0]) #idex of the higest probability
+    max_val_index= np.argmax(prediction[0]) #idex of the higest probabilit
     return options[max_val_index]
 
 def get_user_choice():
@@ -69,7 +65,7 @@ def get_user_choice():
 
 
 
-options=["Rock", "Paper", "Scissors"]
+options=["Rock", "Paper", "Scissors", "nothing"]
 
 def get_computer_choice():
     return random.choice(options).lower()
@@ -115,7 +111,7 @@ def play():
     
     human_choice=get_prediction()
     computer_choice=get_computer_choice()
-    return get_winner(computer_choice, human_choice )
+    return print(human_choice)
     
 
 play()

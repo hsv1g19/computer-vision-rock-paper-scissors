@@ -31,11 +31,8 @@ class rock_paper_scissors():
         _type_
             _description_
         """
-
-       
-
         predictions = self.model.predict(self.data)
-        max_val_index = np.argmax(predictions[0])
+        max_val_index = np.argmax(predictions)
         return max_val_index
 
 
@@ -129,7 +126,8 @@ class rock_paper_scissors():
                         start_time = current_time 
                         timer-=1 #increment timer down by 1 second
                         
-                else:    #if timer is equal to zero show Start! on the screen
+                else:  
+                         #if timer is equal to zero show Start! on the screen
                     ret, frame = self.cap.read()
                     font = cv2.FONT_HERSHEY_DUPLEX
                     cv2.putText(frame, 'Start!', (50, 250), font, 5, (255, 145, 0), 4, cv2.LINE_AA)
@@ -141,11 +139,13 @@ class rock_paper_scissors():
                     self.data[0] = normalized_image
                     #print(round((current_time-start_time)))
                     cv2.imshow('frame', frame)
-
+                    
+                    
                     self.get_computer_choice()
                     self.get_user_choice()
                     self.get_winner()
-
+                    
+                    
                     if self.rounds_played == 3:
                         self.get_game_winner()
                         self.cap.release()#Closes video file or capturing device/camera
@@ -165,5 +165,6 @@ if __name__ == '__main__':
 
     game = rock_paper_scissors()
     game.play_game()
+    print(game.get_prediction())
 
 

@@ -12,13 +12,20 @@ while True:
     normalized_image = (image_np.astype(np.float32) / 127.0) - 1 # Normalize the image
     data[0] = normalized_image
     prediction = model.predict(data)
+    print(prediction)
     cv2.imshow('frame', frame)
     # Press q to close the window
     print(prediction)
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
+
+
+
             
 # After the loop release the cap object
 cap.release()
 # Destroy all the windows
 cv2.destroyAllWindows()
+
+max_val_index= np.argmax(prediction[0]) #idex of the higest probabilit
+print(max_val_index)
