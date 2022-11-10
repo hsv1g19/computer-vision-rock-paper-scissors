@@ -13,5 +13,5 @@ Using if-elif-else statements, the script now choose a winner based on the class
 * uhvudhue
 * fvis
 
-![getting started](Screenshot 2022-11-09 233707.png)
+![getting started](C:\Users\haris\Documents\Aicore\rockpaperscissors\computer-vision-rock-paper-scissors\Screenshot 2022-11-09 233707.png)
 
