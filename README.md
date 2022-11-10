@@ -14,4 +14,4 @@ Using if-elif-else statements, the script now choose a winner based on the class
 * uhvudhue
 * fvis
 
-![Getting Started](docs/images/Picture1.jpg)
+![Getting Started](documents/images/Picture1.jpg)
