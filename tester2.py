@@ -39,7 +39,7 @@ def get_prediction():
         #second while loop-outside define timer get the current time and store in variable
         # define another variable for for current time then use an if statent if difference between start and end is >1
         
-            # Press q to close the window
+            # Press q to close the window.
             #print(prediction)
        
         if cv2.waitKey(1) & 0xFF == ord('q'):
