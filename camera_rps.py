@@ -106,5 +106,5 @@ def get_prediction():
         user_choice = options[max_val_index]
         print(f'You chose {user_choice}')
 
-print(get_prediction())
+print(get_prediction()) # prints prediction
     
