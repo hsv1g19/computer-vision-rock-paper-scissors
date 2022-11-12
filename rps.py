@@ -30,7 +30,7 @@ class rock_paper_scissors():
         Returns
         -------
         Integer 
-            _returns the highest index in the array
+            _returns the highest index/probability in the array
         """
         predictions = self.model.predict(self.data)
         max_val_index = np.argmax(predictions)
