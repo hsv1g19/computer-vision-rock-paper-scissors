@@ -61,6 +61,9 @@ class rock_paper_scissors():
 
         """Using if-elif-else statements, the script chooses a winner based on the classic rules of Rock-Paper-Scissors
            it also adds a counter one to both rounds played, computer wins and user wins, depending on who won the particular round.
+
+           example: if the user selects rock then if the computer selects scissors the user wins however if the computer chooses
+           paper the user loses.
         """
         if self.user_choice == self.computer_choice:
             self.winner= "Both players selected the same. It's a tie!"
